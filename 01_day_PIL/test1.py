@@ -9,5 +9,5 @@ print(im.size, im.format, im.mode)
 # print(im)
 # print(im.size, im.format, im.mode)
 
-im.thumbnail((50,50), resample=Image.BICUBIC)
-im.show()
+im.resize((238,98), resample=Image.BICUBIC)
+im.save("new.png")
