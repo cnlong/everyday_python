@@ -43,4 +43,3 @@ with xlrd.open_workbook("student.xls") as data:
     """
     with open("student.xml", "wb") as f:
         f.write(xmlfile.toprettyxml(encoding="UTF-8"))
-
