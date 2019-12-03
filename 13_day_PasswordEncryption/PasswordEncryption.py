@@ -15,8 +15,8 @@ def encrypt_password(password, salt=None):
     # 第一个参数是密钥key(必须是bytes)，第二个参数是待加密的字符串(必须是bytes)，第三个参数是hash函数
     # digest()ascii格式显示
     # hexdigest()十六进制显示
-    result1 = HMAC(password, salt, sha256).digest()
-    result2 = HMAC(password, salt, sha256).hexdigest()
+    result1 = HMAC(salt, password, sha256).digest()
+    result2 = HMAC(salt, password, sha256).hexdigest()
     return result1, result2
 
 
