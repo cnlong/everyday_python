@@ -23,8 +23,12 @@ def cli():
     # "杭州" -> "<from>"
     # "北京" -> "<to>"
     # "2019-10-01" -> "<date>"
+    # dict_items([('-g', False), ('-d', False), ('-t', False), ('-k', False), ('-z', False), ('<from>', '南京'), ('<to>', '沧州'), ('<date>', '2019-12-10')])
     arguments = docopt(__doc__)
-    print(arguments)
+    # print(arguments.items())
+    options = "".join([key for key, value in arguments.items() if value == True])
+    print(options)
+    # "-g-d-z"
 
 
 if __name__ == '__main__':
