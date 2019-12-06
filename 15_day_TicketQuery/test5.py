@@ -72,6 +72,7 @@ class TrainsInfo:
                           each_train_list[32] if each_train_list[32] else '--',  # 商务座信息，没有则显示"--"
                           each_train_list[22] if each_train_list[22] else '--',  # 其他信息，没有则显示"--"
                           ]
+                # 通过yield将此函数变为生成器，每次循环遍历返回一个值，下次接着上次的状态继续循环遍历，而不是重新执行函数
                 yield trains
 
     def print_train_info(self):
@@ -79,6 +80,12 @@ class TrainsInfo:
         tb = PrettyTable()
         # 添加表头信息
         tb.field_names = ["车次", "出发站台", "到达站台", "发车时间", "到达时间", "时长(h)", "站票", "硬座", "软座", "硬卧", "动卧", "软卧", "高级软卧", "二等座", "一等座", "特等座", "商务座", "其他"]
+        """for 循环遍历生成器的过程：
+            1.判断遍历的对象是否有__iter__函数方法
+            2.获取__iter__函数返回的结果，且其返回的结果是一个迭代器（同时包含__iter__和__next__方法的对象）
+            3.通过返回结果迭代器的netx方法取出值交给循环参数tranis,然后执行后续的循环体
+            4.因为需要不断循环遍历出不同的结果，所以需要上一个函数变为生成器，记住每次取值的状态，用于迭代循环
+        """
         for train in self.infotrains:
             # 将返回出来的车次信息列表添加到表格中
             tb.add_row(train)

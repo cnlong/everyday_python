@@ -15,6 +15,7 @@ Example:
   tickets 杭州 北京 2019-10-01
   tickets -dg 杭州 北京 2019-10-01
 """
+# docopt 命令行参数模块：一能够根据注释提供脚本运行帮助，而是能够和命令行交互获取输入的参数
 from docopt import docopt
 
 def cli():
