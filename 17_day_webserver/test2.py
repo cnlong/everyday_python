@@ -25,26 +25,44 @@ class RequestHandler(BaseHTTPRequestHandler):
         </body>
         </html>
     """
+    Error_Page = """\
+        <html>
+        <body>
+        <h1>Error accessing {path}</h1>
+        <p>{msg}</p>
+        </body>
+        </html>
+        """
 
     def do_GET(self):
         # os.getcwd()列出当前程序所在的完整路径，和访问请求的路径组合成完整路径
         full_path = os.getcwd() + self.path
+        # 默认打开页面
+        if self.path == "/":
+            content = self.create_page()
+            self.send_content(content)
         # 判断请求的路径是否存在
-        if os.path.exists(full_path):
+        elif os.path.exists(full_path):
             # 判断请求的URL是文件
             if os.path.isfile(full_path):
-                content = self.handle_file(full_path)
-                self.send_content(content)
+                self.handle_file(full_path)
             # 如果不是文件，是目录则报错
             else:
+                self.handle_error(ServerException("Unknown object '{0}'".format(self.path)))
                 raise ServerException("Unknown object '{0}'".format(self.path))
         else:
+            self.handle_error(ServerException("'{0}' not found".format(self.path)))
             raise ServerException("'{0}' not found".format(self.path))
 
     def handle_file(self,full_path):
         with open(full_path, "r") as f:
             content = f.read()
-        return content
+        self.send_content(content)
+
+    # 定义错误处理函数，对错误网页页面进行格式化处理
+    def handle_error(self, msg):
+        content = self.Error_Page.format(path=self.path, msg=msg)
+        self.send_content(content)
 
     # 封装HTML页面创建函数
     def create_page(self):
