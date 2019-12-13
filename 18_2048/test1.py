@@ -5,3 +5,4 @@ letter_codes = [ord(i) for i in 'WASDRQwasdrq']
 # 将用户行为和键盘输入进行关联,通过zip函数进行组合,返回的是一个zip对象，通过dict转换成字典
 actioncodes_dict = dict(zip(letter_codes, actions))
 
+
