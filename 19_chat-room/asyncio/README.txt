@@ -1,0 +1,5 @@
+asyncio模块的用法简单说明
+
+1.通过asyncio定义协程对象函数
+2.通过await实现阻塞挂起协程，类似yield
+3.通过wait或者gather实现bingfa
