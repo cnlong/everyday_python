@@ -33,7 +33,9 @@ start = now()
 new_loop = asyncio.new_event_loop()
 t = Thread(target=start_loop, args=(new_loop, ))
 t.start()
+print('TIME: {}'.format(time.time() - start))
 asyncio.run_coroutine_threadsafe(do_some_work(6), new_loop)
 asyncio.run_coroutine_threadsafe(do_some_work(4), new_loop)
-print('TIME: {}'.format(time.time() - start))
+
+
 
