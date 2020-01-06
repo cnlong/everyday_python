@@ -1,0 +1,3 @@
+hostname
+sleep 20
+echo 'Success'

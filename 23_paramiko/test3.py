@@ -1,6 +1,7 @@
 """
 创建类，封装ssh类，读取文件，保证密码安全
 """
+# configparser读取ini类型的配置文件
 import configparser
 import paramiko
 
