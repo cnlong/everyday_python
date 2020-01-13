@@ -1,0 +1,5 @@
+使用sys库的常用函数获取命令行的相关特性
+sys.argv获取命令参数
+sys.stdin和fileinput读取标准输入
+使用SystemExit异常打印错误信息
+使用getpass库读取密码
