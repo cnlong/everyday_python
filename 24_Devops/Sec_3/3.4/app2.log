@@ -1,0 +1,3 @@
+2020-01-13 13:55:12,734 WARNI [root:8] warn message
+2020-01-13 13:55:12,761 ERROR [root:9] error message
+2020-01-13 13:55:12,761 CRITI [root:10] critical message
