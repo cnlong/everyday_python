@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title| trim }}</title>
+</head>
+<body>
+    {# This is a Comment #}
+    <ul id="navigation">
+        {% for item in items %}
+            <li><a href="{{ item.href }}">{{ item['caption'] }}</a> </li>
+        {% endfor %}
+    </ul>
+    <p>{{ content }}</p>
+</body>
+</html>

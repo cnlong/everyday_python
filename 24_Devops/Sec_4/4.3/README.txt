@@ -1,0 +1,1 @@
+字符编码，Unicode是表现形式，UTF-8只是Unicode的存储方式之一

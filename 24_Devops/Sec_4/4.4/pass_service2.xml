@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pass_service2>
+    <issa_server_b_host>10.166.226.152</issa_server_b_host>
+    <issa_server_b_port>8102</issa_server_b_port>
+    <issa_server_c>10.166.226.153:8103</issa_server_c>
+</pass_service2>
