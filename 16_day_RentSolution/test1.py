@@ -5,7 +5,7 @@ import csv
 import lxml
 
 url = "https://nj.58.com/pinpaigongyu/pn/{}/?minprice=1500_2000"
-head = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"}
+head = {"User-Agent": "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"}
 
 page = 0
 

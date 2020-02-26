@@ -1,0 +1,3 @@
+使用Python监控Linux系统
+
+使用python编写的监控工具有inotify-sync,dstat,glances

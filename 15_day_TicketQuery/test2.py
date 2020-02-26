@@ -29,7 +29,7 @@ head = {'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/we
 'Cookie':'JSESSIONID=38D584127A74B2C708875827108DBB12; BIGipServerotn=435159562.38945.0000; RAIL_EXPIRATION=1575766157251; RAIL_DEVICEID=jQps1RWlcrbnVc67YsBTVc3u0vgvNXDYK2Uo6vLZCEBhC6tbq5R6DSvDuV54nI0Ca1Ht3LUVUvb5UKvj1Be8Q9RHv22tQBq2uDPgoEBrax1hDsnD9CT_kiB2_GObLAjlf6st2RlD06qxXNkV3GMB_nWHyRvxfgSo; BIGipServerpool_passport=200081930.50215.0000; route=495c805987d0f5c8c84b14f60212447d; _jc_save_fromStation=%u4E0A%u6D77%2CSHH; _jc_save_toStation=%u5929%u6D25%2CTJP; _jc_save_fromDate=2019-12-04; _jc_save_toDate=2019-12-04; _jc_save_wfdc_flag=dc',
 'Host':'kyfw.12306.cn',
 'Upgrade-Insecure-Requests':'1',
-'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'}
+'User-Agent':'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'}
 url = 'https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date=2019-12-05&leftTicketDTO.from_station=BJP&leftTicketDTO.to_station=SHH&purpose_codes=ADULT'
 ret = requests.get(url, headers=head)
 print(ret.json()['data']['result'])
