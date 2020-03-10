@@ -1,0 +1,1 @@
+pyinotify依赖于Linux内核inotify功能，用于监控系统文件或者目录的变化。pyinotify仅仅是对inotify的封装。
