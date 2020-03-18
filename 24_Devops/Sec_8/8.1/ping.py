@@ -8,7 +8,7 @@ def is_reacheable(ip):
     """
     result = subprocess.run(['ping', '-c', '1', ip], stdout=subprocess.DEVNULL)
     if result.returncode == 0:
-        print("{0} is alive".format(ip))
+        return
     else:
         print("{0} is not alive".format(ip))
 
