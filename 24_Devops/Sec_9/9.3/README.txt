@@ -1,0 +1,1 @@
+通过python库paramiko，来对远程服务器进行操作。
