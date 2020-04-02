@@ -1,0 +1,60 @@
+---
+- name: deploy mongodb
+  hosts: dbservers
+  vars:
+    mongodb_datadir_prefix: /data
+    mongodb_port: 27018
+  tasks:
+    - name: create the mongodbuser
+      user:
+        name: mongodb
+    
+    - name: create the data directory
+      file:
+        path: "{{ mongodb_datadir_prefix }}"
+        owner: mongodb
+        group: mongodb
+        state: directory
+    - name: install mongodb
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - mongodb-server
+        - mongodb-clients
+        - rsyslog-mongodb
+    - name: create data directory for mongodb
+      file:
+        path: "{{ mongodb_datadir_prefix }}/mongo-{{ ansible-hostname }}"
+        state: directory
+        owner: mongodb
+        group: mongodb
+
+    - name: create log directory
+      file:
+        path: /var/log/mongo
+        state: directory
+        owner: mongodb
+        group: mongodb
+
+    - name: create mongodb startup file
+      template:
+        src: mongod.j2
+        dest: "/etc/init.d/mongod-{{ ansible_hostname }}"
+        mode: 0655
+
+    - name: create mongodb configuration file
+      template:
+        src: mongod.conf.j2
+        dest: "/etc/mongod-{{ ansible_hostname }}.conf"
+
+    - name: copy the keyfile for authentication
+      copy:
+        src: secret
+        dest: "{{ mongodb_datadir_prefix }}/secret"
+        owner: mongodb
+        group: mongodb
+        mode: 0400
+
+    - name: start the mongodb service
+      command: creates=/var/lock/subsys/mongodb-{{ ansible_hostname }} /etc/init.d/mongod-{{ ansible_hostname }} start

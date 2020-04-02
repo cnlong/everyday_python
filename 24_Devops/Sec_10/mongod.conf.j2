@@ -1,0 +1,11 @@
+logpath=/var/log/mongo/mongo-{{ ansible_hostname }}.log
+logappend=true
+
+fork = true
+
+port = {{ mongod_port }}
+
+dbpath={{ mongodb_datadir_prefix }}/mongo-{{ ansible_hostname }}
+keyFile={{ mongodb_data_prefix }}/secret
+
+pidfilepath=/var/run/mongod-{{ ansible_hostname }}.pid
